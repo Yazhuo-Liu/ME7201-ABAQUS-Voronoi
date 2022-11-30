@@ -98,10 +98,10 @@ for i in range(len(myPart.cells)):
 
     myMaterial.UserMaterial(mechanicalConstants=myConstants)
     # create section
-    myModel.HomogeneousSolidSection(name='Section-{}'.format(i), material='Material-{}'.format(i), thickness=None)
+    myModel.HomogeneousSolidSection(name='Section-{}'.format(i+1), material='MATERIAL{}'.format(i+1), thickness=None)
     # asign material
-    region = myPart.Set(cells = myPart.cells[i:i+1],name = "Set-{}".format(i))
-    myPart.SectionAssignment(region = region, sectionName='Section-{}'.format(i), offset=0.0,
+    region = myPart.Set(cells = myPart.cells[i:i+1],name = "Set-{}".format(i+1))
+    myPart.SectionAssignment(region = region, sectionName='Section-{}'.format(i+1), offset=0.0,
                         offsetType=MIDDLE_SURFACE, offsetField='', thicknessAssignment=FROM_SECTION)
 
 
